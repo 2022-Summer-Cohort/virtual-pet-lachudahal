@@ -1,101 +1,187 @@
 package virtual_pet;
 
-import java.util.*;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class VirtualPetApplication {
+
+    public static void feedAllPets(VirtualPetShelter petShelter) {
+        petShelter.feedAll();
+    }
+
+    public static void feedOnePet(VirtualPetShelter petShelter, Scanner input) {
+        System.out.println("Please choose which pet you want to feed");
+        for (int i = 0; i < petShelter.returnSize(); i++) {
+            System.out.println(petShelter.onePet(i).getName() + "--> " + i + " ");
+        }
+        int petNum = input.nextInt();
+        input.nextLine();
+        if (petNum == 1) {
+            petShelter.feedOne(petShelter.onePet(0));
+        } else if (petNum == 2) {
+            petShelter.feedOne(petShelter.onePet(1));
+        } else {
+            petShelter.feedOne(petShelter.onePet(2));
+        }
+    }
+
+    public static void hydrateAllPets(VirtualPetShelter petShelter, int amount) {
+        petShelter.hydrateAll(amount);
+    }
+
+    public static void hydrateOnePet(VirtualPetShelter petShelter, Scanner input, int amount) {
+        System.out.println("Please choose which pet you want to hydrate");
+        for (int i = 0; i < petShelter.returnSize(); i++) {
+            System.out.println(petShelter.onePet(i).getName() + "--> " + i + " ");
+        }
+        int petNum = input.nextInt();
+        input.nextLine();
+        System.out.println("Enter hydrate amount");
+        amount = input.nextInt();
+        input.nextLine();
+        if (petNum == 1) {
+            petShelter.hydrateOne(petShelter.onePet(0), amount);
+        } else if (petNum == 2) {
+            petShelter.hydrateOne(petShelter.onePet(1), amount);
+        } else {
+            petShelter.hydrateOne(petShelter.onePet(2), amount);
+        }
+    }
+
+    public static void entertainAllPets(VirtualPetShelter petShelter, int play) {
+        petShelter.entertainAll(play);
+    }
+
+    public static void entertainOnePet(VirtualPetShelter petShelter, Scanner input, int lowerBoredom) {
+        System.out.println("Please choose which pet you want to entertain");
+        for (int i = 0; i < petShelter.returnSize(); i++) {
+            System.out.println(petShelter.onePet(i).getName() + "--> " + i + " ");
+        }
+        int petNum = input.nextInt();
+        input.nextLine();
+        if (petNum == 0) {
+            if (lowerBoredom == 1) {
+                petShelter.onePet(0).entertainment(lowerBoredom);
+            } else if (lowerBoredom == 2) {
+                petShelter.onePet(0).entertainment(lowerBoredom);
+            } else {
+                petShelter.onePet(0).entertainment(lowerBoredom);
+            }
+
+        } else if (petNum == 1) {
+            if (lowerBoredom == 1) {
+                petShelter.onePet(1).entertainment(lowerBoredom);
+            } else if (lowerBoredom == 2) {
+                petShelter.onePet(1).entertainment(lowerBoredom);
+            } else {
+                petShelter.onePet(1).entertainment(lowerBoredom);
+            }
+            if (petNum == 2) {
+                if (lowerBoredom == 1) {
+                    petShelter.onePet(2).entertainment(lowerBoredom);
+                } else if (lowerBoredom == 2) {
+                    petShelter.onePet(2).entertainment(lowerBoredom);
+                } else {
+                    petShelter.onePet(0).entertainment(lowerBoredom);
+                }
+            }
+        }
+    }
+
+    public static void adoptPet(VirtualPetShelter petShelter, Scanner input) {
+        System.out.println("Please choose which pet you want to adopt");
+
+        for (int i = 0; i < petShelter.returnSize(); i++) {
+            System.out.println(petShelter.onePet(i).getName() + "--> " + i + " ");
+        }
+        int petNum = input.nextInt();
+        petShelter.adoptPet(petShelter.onePet(petNum));
+    }
+
+
+    public static void admitPet(VirtualPetShelter petShelter, Scanner input) {
+        System.out.println("Enter the name of your pet:");
+        String name = input.nextLine();
+        VirtualPet pet4 = new VirtualPet(name, 1, 3, 2);
+        petShelter.admitPet(pet4);
+    }
+    public static void PetDeath(VirtualPet petShelter){
+        if(petShelter.getHungerLevel() >= 10 || petShelter.getThirstLevel() >= 10 || petShelter.getBoredomLevel() >= 10){
+            System.out.println("Your pet died");
+        }
+
+    }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String name;
-        int hungerlevel;
-        int thirstlevel;
-        int boredomlevel;
-        boolean level = true;
+        VirtualPetShelter petShelter = new VirtualPetShelter();
 
-        VirtualPet pet = new VirtualPet("Dude", 3, 1, 5);
-        System.out.println("------------------------------------------------");
-        System.out.println("Your current status of " + pet.getName() + "...");
-        System.out.print(" Hunger Level: " + pet.getHungerLevel());
-        System.out.print(" Thirst Level: " + pet.getThirstLevel());
-        System.out.println(" Boredom Level: " + pet.getBoredomLevel());
-        System.out.println("-------------------------------------------------");
+        while (true && petShelter.returnSize() != 0) {
+            petShelter.allPetStatus();
+            System.out.println("Please choose what you wan to do");
+            System.out.println("Feed --> 1");
+            System.out.println("Hydrate --> 2");
+            System.out.println("Boredom --> 3");
+            System.out.println("Adopt --> 4");
+            System.out.println("Admit --> 5");
+            System.out.println("Exit --> 6");
+            int play = input.nextInt();
+            input.nextLine();
 
-        while (level = true) {
-            System.out.println();
-            System.out.println("what you want to do with " + pet.getName());
-            System.out.println("please choose the option below: ");
-            System.out.println("Feed --> Enter feed or F");
-            System.out.println("Hydrate --> Enter water or W");
-            System.out.println("Boredom --> Enter Bored or B");
-            System.out.println("exit --> Enter exit or E");
-            System.out.println();
+            if (play == 1) {
+                System.out.println("Would you like to feed one pet or all of them");
+                System.out.println("Feed one ---> 1");
+                System.out.println("Feed all ---> 2");
+                int feedNum = input.nextInt();
+                if (feedNum == 1) {
+                    feedOnePet(petShelter, input);
+                } else {
+                    feedAllPets(petShelter);
+                }
+            } else if (play == 2) {
+                System.out.println("would you like to hydrate one pet or all of them");
+                System.out.println("Hydrate one ---> 1");
+                System.out.println("Hydrate all  ---> 2");
+                int hydrateNum = input.nextInt();
+                input.nextLine();
+                System.out.println("Enter hydrate amount");
+                int amount = input.nextInt();
+                input.nextLine();
+                if (hydrateNum == 1) {
+                    hydrateOnePet(petShelter, input, amount);
+                } else {
+                    hydrateAllPets(petShelter, amount);
+                }
+            } else if (play == 3) {
+                System.out.println("Would you like to entertain one pet or all of them");
+                System.out.println("Entertain one ---> 1");
+                System.out.println("Entertain all  ---> 2");
+                int entertainNum = input.nextInt();
+                input.nextLine();
+                System.out.println("To pet him ---> Enter  1");
+                System.out.println("To watch movie with him --> Enter 2");
+                System.out.println("To go on Walk --> Enter 3");
+                int lowerBoredom = input.nextInt();
+                input.nextLine();
 
-            String choose = input.nextLine();
-            String play = choose.toLowerCase();
-            if (play.equals("exit") || play.equals("e")) {
+                if (entertainNum == 1) {
+                    entertainOnePet(petShelter, input, lowerBoredom);
+                } else {
+                    entertainAllPets(petShelter, lowerBoredom);
+                }
+            } else if (play == 4) {
+                if (petShelter.returnSize() == 0) {
+                    System.out.println("Shelter is empty");
+                } else {
+                    adoptPet(petShelter, input);
+                }
+            } else if (play == 5) {
+                admitPet(petShelter, input);
+            } else {
                 break;
-
-            } if (play.equals("feed") || play.equals("f")) {
-                if (pet.getHungerLevel() == 0) {
-                    System.out.println("Your " + pet.getName() + " is full.");
-                } else {
-                    System.out.println("how much do you want to feed: ");
-                    int num = input.nextInt();
-                    input.nextLine();
-                    pet.feed(num);
-                    int  updateValue= pet.getHungerLevel() + 1;
-                    System.out.println("Your " + pet.getName() + " current hunger level is " +
-                            updateValue);
-                }
-
             }
-            if (play.equals("water") || play.equals("w")) {
-                if (pet.getThirstLevel() == 0) {
-                    System.out.println("your " + pet.getName() + " is not thirsty.");
-                } else {
-                    System.out.println("how much do you want want him to drink: ");
-                    int waterNum = input.nextInt();
-                    input.nextLine();
-                    pet.drink(waterNum);
-                    int updateValue = pet.getThirstLevel() + 1;
-                    System.out.println("your " + pet.getName() + " current  level is " +  updateValue);
-                }
-            }
-            if (play.equals("Bored") || play.equals("b")) {
-                if (pet.getBoredomLevel() == 0) {
-                    System.out.println("your " + pet.getName() + " is not bored.");
-                } else {
-                    System.out.println("Choose the option below to lower the bordom level");
-                    System.out.println("To pet him ---> Enter  1");
-                    System.out.println("To watch movie with him --> Enter 2");
-                    System.out.println("To go on Walk --> Enter 3");
-                    int lowerBoredom = input.nextInt();
-                    input.nextLine();
-                    if (lowerBoredom == 1) {
-                        pet.entertainment(1);
-                        int updateValue = pet.getBoredomLevel() + 1;
-                        System.out.println("your current Boredom level is " + updateValue);
-                    } else if (lowerBoredom == 2) {
-                        pet.entertainment(2);
-                        int updateValue = pet.getBoredomLevel() + 1;
-                        System.out.println("your current Boredom level is " +updateValue);
-
-                    } else {
-                        pet.entertainment(3);
-                        int updateValue = pet.getBoredomLevel() + 1;
-                        System.out.println("your " + pet.getName() + " current Boredom level is " + updateValue);
-                    }
-                }
-
-            }
-            pet.tick();
-
+            petShelter.updateTickAll();
         }
-        System.out.println("GoodBye!!");
+        System.out.println("Thank you for playing the game");
+        System.out.println("Goodbye!");
     }
 }
-
-
-
-
-
-

@@ -1,19 +1,20 @@
 package virtual_pet;
 
+
 public class VirtualPet {
     // instance variables
     private String name;
-    private int hungerlevel;
-    private int thirstlevel;
-    private int boredomlevel;
+    private int hungerLevel;
+    private int thirstLevel;
+    private int boredomLevel;
 
     // constructor
-    public VirtualPet(String name, int hungerlevel, int thirstlevel,
-                      int boredomlevel) {
+    public VirtualPet(String name, int hungerLevel, int thirstLevel,
+                      int boredomLevel) {
         this.name = name;
-        this.hungerlevel = hungerlevel;
-        this.thirstlevel = thirstlevel;
-        this.boredomlevel = boredomlevel;
+        this.hungerLevel = hungerLevel;
+        this.thirstLevel = thirstLevel;
+        this.boredomLevel = boredomLevel;
     }
 
     public String getName() {
@@ -21,30 +22,38 @@ public class VirtualPet {
     }
 
     public int getHungerLevel() {
-        return hungerlevel;
+        return hungerLevel;
     }
 
     public int getThirstLevel() {
-        return thirstlevel;
+        return thirstLevel;
     }
 
     public int getBoredomLevel() {
-        return boredomlevel;
+        return boredomLevel;
     }
-    public void feed(int num){
-        hungerlevel -= num;
+    public void feed(){
+        hungerLevel ++;
     }
-    public void entertainment(int level){
-        boredomlevel -= level;
+    public void entertainment(int amount){
+        boredomLevel += amount;
 
     }
-    public void drink(int cup){
-        thirstlevel -= cup;
+    public void hydrate(int amount){
+        thirstLevel += amount;
     }
+    public void petStatus(){
+        System.out.println("The current status of " + name + "...");
+        System.out.print(" Hunger Level: " + hungerLevel);
+        System.out.print(" Thirst Level: " + thirstLevel);
+        System.out.println(" Boredom Level: " + boredomLevel);
+    }
+    
     public void tick(){
-        hungerlevel++;
-        thirstlevel++;
-        boredomlevel++;
+
+        hungerLevel++;
+        thirstLevel++;
+        boredomLevel++;
 
     }
 }
