@@ -3,7 +3,7 @@ package virtual_pet;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class VirtualPetApplication {
+public class VirtualPetShelterApplication {
 
     public static void feedAllPets(VirtualPetShelter petShelter) {
         petShelter.feedAll();
