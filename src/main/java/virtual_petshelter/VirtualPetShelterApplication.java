@@ -1,6 +1,7 @@
-package virtual_pet;
+package virtual_petshelter;
 
-import java.util.Locale;
+import virtual_pet.VirtualPet;
+
 import java.util.Scanner;
 
 public class VirtualPetShelterApplication {

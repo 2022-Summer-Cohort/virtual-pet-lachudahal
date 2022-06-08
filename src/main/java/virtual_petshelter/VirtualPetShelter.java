@@ -1,4 +1,6 @@
-package virtual_pet;
+package virtual_petshelter;
+
+import virtual_pet.VirtualPet;
 
 import java.util.ArrayList;
 

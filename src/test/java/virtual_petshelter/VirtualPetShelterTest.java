@@ -1,7 +1,9 @@
-package virtual_pet;
+package virtual_petshelter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import virtual_pet.VirtualPet;
+import virtual_petshelter.VirtualPetShelter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

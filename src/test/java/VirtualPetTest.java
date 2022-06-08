@@ -18,7 +18,7 @@ class VirtualPetTest {
         assertEquals(6, underTest.getBoredomLevel());
     }
     @Test
-    public void drinkingShouldLowerTheThristLevel(){
+    public void drinkingShouldLowerTheThirstLevel(){
         VirtualPet underTest = new VirtualPet("Ram", 5, 5, 5);
         underTest.hydrate(2);
         assertEquals(7, underTest.getThirstLevel());
