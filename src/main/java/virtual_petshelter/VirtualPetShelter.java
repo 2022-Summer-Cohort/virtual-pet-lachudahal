@@ -8,9 +8,9 @@ public class VirtualPetShelter {
     private ArrayList<VirtualPet> shelter;
     public VirtualPetShelter(){
         shelter = new ArrayList<>();
-        shelter.add(new VirtualPet("dude", 3,5,4));
-        shelter.add(new VirtualPet("echo", 4,6,3));
-        shelter.add(new VirtualPet("duke", 6,3,4));
+        shelter.add(new VirtualPet("dude", 3,5,6));
+        shelter.add(new VirtualPet("echo", 1,2,3));
+        shelter.add(new VirtualPet("duke", 4,3,7));
     }
 
     public int returnSize() {
@@ -26,9 +26,9 @@ public class VirtualPetShelter {
         }
         return false;
     }
-    public void feedAll(){
+    public void feedAll(int amount){
         for (VirtualPet pet : shelter) {
-            pet.feed();
+            pet.feed(amount);
         }
     }
 
@@ -50,8 +50,8 @@ public class VirtualPetShelter {
         shelter.add(pet);
     }
 
-    public void feedOne(VirtualPet pet){
-        pet.feed();
+    public void feedOne(VirtualPet pet, int amount){
+        pet.feed(amount);
     }
     public void hydrateOne(VirtualPet pet, int amount){
         pet.hydrate(amount);

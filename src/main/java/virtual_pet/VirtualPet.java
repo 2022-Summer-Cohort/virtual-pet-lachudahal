@@ -32,19 +32,21 @@ public class VirtualPet {
     public int getBoredomLevel() {
         return boredomLevel;
     }
-    public void feed(){
-        hungerLevel ++;
+    public void feed(int amount){
+        amount++;
+        hungerLevel -= amount;
     }
     public void entertainment(int amount){
-        boredomLevel += amount;
+        amount++;
+        boredomLevel -= amount;
 
     }
     public void hydrate(int amount){
-        thirstLevel += amount;
+        amount++;
+        thirstLevel -= amount;
     }
     public void petStatus(){
-        System.out.println("The current status of " + name + "...");
-        System.out.print(" Hunger Level: " + hungerLevel);
+        System.out.print(name + ": Hunger Level: " + hungerLevel);
         System.out.print(" Thirst Level: " + thirstLevel);
         System.out.println(" Boredom Level: " + boredomLevel);
     }

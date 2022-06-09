@@ -8,7 +8,7 @@ class VirtualPetTest {
     @Test
     public void feedShouldLowerTheHungerLevel(){
        VirtualPet underTest = new VirtualPet("Ram", 5, 5, 5);
-       underTest.feed();
+       underTest.feed(1);
        assertEquals(6, underTest.getHungerLevel());
     }
     @Test

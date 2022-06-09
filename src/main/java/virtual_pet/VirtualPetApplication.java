@@ -23,7 +23,10 @@ public class VirtualPetApplication {
                 if (pet.getHungerLevel() == 10) {
                     System.out.println("I am not hungry");
                 } else {
-                    pet.feed();
+                    System.out.println("Enter amount to feed: ");
+                    int feedAmount = input.nextInt();
+                    input.nextLine();
+                    pet.feed(feedAmount);
                     int updateValue = pet.getHungerLevel() + 1;
                     System.out.println("your " + pet.getName() + " current  level is " + updateValue);
                 }

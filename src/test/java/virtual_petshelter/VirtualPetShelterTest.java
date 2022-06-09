@@ -24,7 +24,7 @@ public class VirtualPetShelterTest {
 
     @Test
     public void feedAllPet() {
-        underTest.feedAll();
+        underTest.feedAll(1);
         assertEquals(4, underTest.onePet(0).getHungerLevel());
         assertEquals(5, underTest.onePet(1).getHungerLevel());
         assertEquals(7, underTest.onePet(2).getHungerLevel());
@@ -57,7 +57,7 @@ public class VirtualPetShelterTest {
     }
     @Test
     public void shouldFeedOnePet(){
-        underTest.feedOne(underTest.onePet(1));
+        underTest.feedOne(underTest.onePet(1),1);
         assertEquals(5, underTest.onePet(1).getHungerLevel());
     }
     @Test
