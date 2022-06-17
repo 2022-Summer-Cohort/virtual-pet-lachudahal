@@ -1,3 +1,5 @@
+package virtual_pet;
+
 import org.junit.jupiter.api.Test;
 import virtual_pet.VirtualPet;
 

@@ -10,8 +10,8 @@ public class VirtualPetAmok {
     public VirtualPetAmok() {
         petsAmok = new ArrayList<>();
         petsAmok.add(new OrganicDog("dude", 1, 2, 3, 4));
-        petsAmok.add(new OrganicCat("echo", 1, 2, 3, 3));
-        petsAmok.add(new RoboticDog("Luna", 3, 5, 7, 2));
+        petsAmok.add(new OrganicCat("luna", 1, 2, 3, 3));
+        petsAmok.add(new RoboticDog("echo", 3, 5, 7, 2));
         petsAmok.add(new RoboticCat("Bella", 2, 1, 5, 1));
     }
 
