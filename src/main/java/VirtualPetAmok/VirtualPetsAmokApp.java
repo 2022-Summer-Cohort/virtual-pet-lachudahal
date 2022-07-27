@@ -27,16 +27,22 @@ public class VirtualPetsAmokApp {
 
             if (play == 1) {
                 petAmokShelter.oilForAllRoboticPets();
+                petAmokShelter.updateTick();
             } else if (play == 2) {
                 petAmokShelter.allRoboticPetsMaintenance();
+                petAmokShelter.updateTick();
             } else if (play == 3) {
                 petAmokShelter.chargeAllRoboticPets();
+                petAmokShelter.updateTick();
             } else if (play == 4) {
                 petAmokShelter.cleanAllOrganicPetsCage();
+                petAmokShelter.updateTick();
             } else if (play == 5) {
                 petAmokShelter.hydrateAllOrganicPets();
+                petAmokShelter.updateTick();
             } else if (play == 6) {
                 petAmokShelter.entertainAllPets();
+                petAmokShelter.updateTick();
             } else if (play == 7) {
                 System.out.println("Which pet do you want to adopt? ");
                 for (int i = 0; i < petAmokShelter.sizeOfShelter(); i++) {
@@ -45,6 +51,7 @@ public class VirtualPetsAmokApp {
                 int petNumber = input.nextInt();
                 input.nextLine();
                 petAmokShelter.adoptPet(petAmokShelter.getOnePetWithIndex(petNumber));
+                petAmokShelter.updateTick();
             } else if(play == 8) {
                 System.out.println("What is the name of the pet to admit? ");
                 String petName = input.nextLine();
@@ -61,6 +68,7 @@ public class VirtualPetsAmokApp {
                     tempPet = new OrganicCat(petName,10,10,10,10);
                 }
                 petAmokShelter.admitPet(tempPet);
+                petAmokShelter.updateTick();
             } else if(play==9) {
                 System.out.println("Goodbye!");
                 break;
@@ -71,6 +79,7 @@ public class VirtualPetsAmokApp {
 
 
         }
+
 
     }
 }

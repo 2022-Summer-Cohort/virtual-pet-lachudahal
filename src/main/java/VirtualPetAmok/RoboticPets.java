@@ -32,10 +32,11 @@ public abstract class RoboticPets extends VirtualPets {
     public void updateChargeLevel(){
         chargeLevel--;
     }
-    @Override
+
     public void tick(){
         oilLevel++;
         maintenance++;
         chargeLevel++;
+        health++;
     }
 }

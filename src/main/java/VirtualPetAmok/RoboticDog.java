@@ -7,7 +7,7 @@ public class RoboticDog extends RoboticPets implements walkPets {
         super(name, health, oilLevel, maintenance, chargeLevel);
     }
 
-    @Override
+
     public void walk() {
         health++;
         oilLevel++;

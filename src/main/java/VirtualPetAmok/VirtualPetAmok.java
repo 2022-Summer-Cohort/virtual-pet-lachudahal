@@ -23,12 +23,12 @@ public class VirtualPetAmok {
         return petsAmok.get(n);
     }
 
-    public boolean checkPet(VirtualPets pets) {
-        if (petsAmok.contains(pets)) {
-            return true;
-        }
-        return false;
-    }
+//    public boolean checkPet(VirtualPets pets) {
+//        if (petsAmok.contains(pets)) {
+//            return true;
+//        }
+//        return false;
+//    }
 
     public void admitPet(VirtualPets pets) {
         petsAmok.add(pets);
@@ -86,13 +86,13 @@ public class VirtualPetAmok {
         }
     }
 
-    public void entertainOneOrganicPet() {
-        for (VirtualPets pets : petsAmok) {
-            if (pets instanceof OrganicPets) {
-                ((OrganicPets) pets).lowerBoredomLevel();
-            }
-        }
-    }
+//    public void entertainOneOrganicPet() {
+//        for (VirtualPets pets : petsAmok) {
+//            if (pets instanceof OrganicPets) {
+//                ((OrganicPets) pets).lowerBoredomLevel();
+//            }
+//        }
+//    }
 
     public void updateTick() {
         for (VirtualPets amokPets : petsAmok) {
